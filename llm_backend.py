@@ -14,8 +14,12 @@ import os
 
 import requests
 import torch
+from dotenv import load_dotenv
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoConfig
 from peft import PeftModel
+
+# 从项目根目录 .env 读取本地配置（该文件已被 .gitignore 忽略，不会上传）
+load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
 
 LLM_NAME = "Qwen/Qwen1.5-1.8B"
 SFT_ADAPTER = "D:/SFT/models/sft/best"
